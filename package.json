@@ -1,0 +1,17 @@
+{
+  "name": "web-form-action",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "html:dev": "pnpm --filter=@web-form-action/html dev",
+    "sherif": "sherif"
+  },
+  "packageManager": "pnpm@10.15.0",
+  "engines": {
+    "node": "22.x",
+    "pnpm": "10.15.0"
+  },
+  "devDependencies": {
+    "sherif": "^1.6.1"
+  }
+}
