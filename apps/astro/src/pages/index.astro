@@ -1,0 +1,41 @@
+---
+import { DATABASE } from "../database";
+
+if (Astro.request.method === "POST") {
+    try {
+        const data = await Astro.request.formData();
+        const item = data.get("item")?.toString();
+        if (item == null) throw new Error("Item cannot be null");
+        DATABASE.push(item);
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+    }
+}
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body>
+        <h1>Astro</h1>
+        <ul>
+            {DATABASE.map((item) => <li>{item}</li>)}
+        </ul>
+        <form method="post">
+            <input
+                type="text"
+                name="item"
+                placeholder="Enter something"
+                autofocus
+            />
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "html:dev": "pnpm --filter=@web-form-action/html dev",
+    "astro:dev": "pnpm --filter=@web-form-action/astro dev",
     "sherif": "sherif"
   },
   "packageManager": "pnpm@10.15.0",
